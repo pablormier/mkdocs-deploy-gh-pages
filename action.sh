@@ -13,11 +13,6 @@ done
 
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
-else
-    REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
-    if [ -f "${REQUIREMENTS}" ]; then
-        pip install -r "${REQUIREMENTS}"
-    fi
 fi
 
 if [ -n "${CUSTOM_DOMAIN}" ]; then
