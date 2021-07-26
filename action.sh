@@ -11,6 +11,8 @@ do
     apk add --no-cache "${package}"
 done
 
+python -m pip install --upgrade pip
+
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
