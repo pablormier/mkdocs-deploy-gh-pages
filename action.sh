@@ -14,7 +14,11 @@ done
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
-    pip install mkdocstrings mkdocs-material
+    REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
+    if [ -f "${REQUIREMENTS}" ]; then
+        pip install -r "${REQUIREMENTS}"
+    fi
+    pip install mkdocstrings
 fi
 
 if [ -n "${CUSTOM_DOMAIN}" ]; then
